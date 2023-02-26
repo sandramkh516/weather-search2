@@ -11,6 +11,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Raleway:wght@400;500;900&display=swap"
       rel="stylesheet"
@@ -34,14 +35,23 @@
       <p id="month" class="text-center"></p>
       <div class="weather-today">
         <ul>
-          <li><h1 id="city"></h1></li>
-          <li id="description">(clear sky)</li>
-          <li id="temp">4°Ϲ</li>
-          <li><span id="wind">wind</span><span id="humid">humidity</span></li>
+          <li>
+            <h1 id="city"></h1>
+            <img src="" alt="Clear" id="icon" width="50px" />
+          </li>
+          <li id="description"></li>
+          <li id="temp"></li>
+          <li>
+            wind: <span id="wind"></span>-humidity: <span id="humid"></span>%
+          </li>
         </ul>
       </div>
       <p class="text-center">
-        Display current temperature in:<a>Celsius</a>|<a>Fahrenheit</a>
+        Display current temperature in:<a href="#" id="celsius">Celsius</a>|<a
+          href="#"
+          id="fahrenheit"
+          >Fahrenheit</a
+        >
       </p>
       <h3>You don't live in Isfahan</h3>
 
@@ -54,7 +64,7 @@
           autocomplete="on"
           id="text-input"
         />
-        <button type="submit" class="btn btn-primary mb-2" id="refresh-button">
+        <button type="submit" class="btn btn-primary">
           <i class="fas fa-air-freshener"></i>Refresh
         </button>
       </form>
