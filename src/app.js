@@ -47,3 +47,15 @@ function currentMonth() {
 }
 let period = document.querySelector("#month");
 period.innerHTML = currentMonth();
+
+function showCity(event) {
+  event.preventDefault();
+  let search = document.querySelector("#text-input");
+  let h1 = document.querySelector("#city");
+  h1.innerHTML = search.value;
+}
+let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${paris}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(showCity);
+let form = document.querySelector("#search-input");
+form.addEventListener("submit", showCity);
