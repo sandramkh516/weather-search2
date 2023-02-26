@@ -1,1 +1,31 @@
-
+body {
+  max-width: 600px;
+  margin: auto;
+  padding-top: 30px;
+}
+h2 {
+  color: #0f3057;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+h3 {
+  color: #00587a;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+}
+img {
+  width: 150px;
+}
+.weather-today {
+  border: 1px solid #00587a;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.weather-today ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
