@@ -99,3 +99,37 @@ function displayFahrenheit(event) {
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
 let temperatureMain = null;
+
+function displayForcast() {
+  let forecastElement = document.querySelector("#future");
+  let days = [
+    "sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "friday",
+    "saturday",
+  ];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function(day)){
+    forecastHTML=forecastHTML
+  }
+  forecastHTML =
+    forecastHTML +
+    ` <div class="col-2">
+            <ul>
+              <li>tue</li>
+              <li>18</li>
+              <li>sun</li>
+            </ul>
+          </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+} 
+
+function getForecast(coordinates){
+
+
+let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+let apiUrl=`api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}`}

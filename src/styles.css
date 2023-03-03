@@ -1,12 +1,16 @@
 body {
   max-width: 600px;
-  margin: auto;
+  margin: 0 auto;
   padding-top: 30px;
+}
+h1 {
+  color: #c51350;
 }
 h2 {
   color: #0f3057;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
+  padding-top: 25px;
 }
 h3 {
   color: #00587a;
@@ -14,17 +18,33 @@ h3 {
   font-size: 18px;
   font-weight: 700;
   text-align: center;
-  margin-top: 20px;
 }
 img {
-  width: 150px;
+  width: 180px;
 }
 .weather-today {
   border: 1px solid #00587a;
+  border-radius: 4px;
   max-width: 300px;
   margin: 0 auto;
 }
 .weather-today ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.img-font {
+  font-size: 18px;
+  width: 40px;
+}
+.color {
+  color: #c51350;
+}
+.temp {
+  font-weight: 600;
+  font-size: 28px;
+}
+.future ul {
   list-style: none;
   text-align: center;
   padding: 0;
