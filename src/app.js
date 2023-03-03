@@ -81,6 +81,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function displayCelsius(event) {
   event.preventDefault();
@@ -89,6 +90,14 @@ function displayCelsius(event) {
 }
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsius);
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 function displayFahrenheit(event) {
   event.preventDefault();
@@ -111,17 +120,17 @@ function displayForecast(response) {
         forecastHTML +
         ` <div class="col-2">
             <ul>
-              <li>${forecastDay.dt}</li>
+              <li>${formatDay(forecastDay.dt)}</li>
               <li><span>${Math.round(
                 forecastDay.temp.max
               )}°</span>/<span>${Math.round(forecastDay.temp.min)}°</span></li>
               <li>${forecastDay.weather[0].icon}</li>
             </ul>
           </div>`;
-      forecastHTML = forecastHTML + `</div>`;
-      forecastElement.innerHTML = forecastHTML;
     }
   });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
