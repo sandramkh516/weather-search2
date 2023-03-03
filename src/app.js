@@ -100,36 +100,32 @@ let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
 let temperatureMain = null;
 
-function displayForcast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#future");
-  let days = [
-    "sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "friday",
-    "saturday",
-  ];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function(day)){
-    forecastHTML=forecastHTML
-  }
-  forecastHTML =
-    forecastHTML +
-    ` <div class="col-2">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
             <ul>
-              <li>tue</li>
-              <li>18</li>
-              <li>sun</li>
+              <li>${forecastDay.dt}</li>
+              <li><span>${Math.round(
+                forecastDay.temp.max
+              )}°</span>/<span>${Math.round(forecastDay.temp.min)}°</span></li>
+              <li>${forecastDay.weather[0].icon}</li>
             </ul>
           </div>`;
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-} 
+      forecastHTML = forecastHTML + `</div>`;
+      forecastElement.innerHTML = forecastHTML;
+    }
+  });
+}
 
-function getForecast(coordinates){
-
-
-let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-let apiUrl=`api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}`}
+function getForecast(coordinates) {
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `api.openweathermap.org/data/2.5/forecast/daily?lat=${coordinates.lat}&lon=${coordinates.lon}&cnt={cnt}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
