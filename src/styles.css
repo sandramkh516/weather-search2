@@ -49,3 +49,6 @@ img {
   text-align: center;
   padding: 0;
 }
+.edge {
+  border: 1px solid #c51350;
+}
