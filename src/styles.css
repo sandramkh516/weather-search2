@@ -4,7 +4,7 @@ body {
   padding-top: 30px;
 }
 h1 {
-  color: #c51350;
+  color: #702283;
 }
 h2 {
   color: #0f3057;
@@ -23,10 +23,11 @@ img {
   width: 180px;
 }
 .weather-today {
-  border: 1px solid #00587a;
+  border: 1px solid #8dc6ff;
   border-radius: 4px;
   max-width: 300px;
   margin: 0 auto;
+  background: rgb(141, 198, 255, 0.7);
 }
 .weather-today ul {
   list-style: none;
@@ -38,7 +39,7 @@ img {
   width: 40px;
 }
 .color {
-  color: #c51350;
+  color: #235784;
 }
 .temp {
   font-weight: 600;
@@ -46,9 +47,15 @@ img {
 }
 
 .edge {
-  border: 1px solid #c51350;
+  border: 1px solid #c08bcd;
+  background: rgb(141, 198, 255, 0.7);
 }
 .center {
   text-align: center;
-  padding: 20px 15px;
+  padding: 12px 0;
+}
+.button-second {
+  display: block;
+  padding: 4px 18px;
+  margin: auto;
 }
