@@ -150,3 +150,14 @@ function getForecast(coordinates) {
 }
 
 searchCity("Isfahan");
+
+function currentPosition(position) {
+  let current = position.coords;
+  apiKey = "2ff29bed3181c3526c35cc5408037f85";
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  getForecast(current);
+  axios.get(apiUrl).then(showTemperature);
+}
+let button = document.querySelector("#find");
+button.addEventListener("click", currentPosition);
+navigator.geolocation.getCurrentPosition(currentPosition);
