@@ -54,15 +54,20 @@ function showCity(event) {
   let h1 = document.querySelector("#city");
   let city = search.value;
   h1.innerHTML = city;
-  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  searchCity(city);
 }
 let form = document.querySelector("#search-input");
 form.addEventListener("submit", showCity);
 
+function searchCity(city) {
+  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 function showTemperature(response) {
   console.log(response.data);
+  h1 = document.querySelector("#city");
+  h1.innerHTML = response.data.name;
   let describe = document.querySelector("#description");
   let description = response.data.weather[0].description;
   describe.innerHTML = description;
@@ -118,8 +123,8 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        ` <div class="edge"><div class="col-2">
-          
+        ` <div class="col-2">
+          <div class="edge center mb-4">
               <div>${formatDay(forecastDay.dt)}</div>
               <div>  <img
           src="http://openweathermap.org/img/wn/${
@@ -143,4 +148,5 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
-("5f472b7acba333cd8a035ea85a0d4d4c");
+
+searchCity("Isfahan");

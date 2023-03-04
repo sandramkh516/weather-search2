@@ -44,11 +44,11 @@ img {
   font-weight: 600;
   font-size: 28px;
 }
-.future ul {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
+
 .edge {
   border: 1px solid #c51350;
+}
+.center {
+  text-align: center;
+  padding: 20px 15px;
 }
